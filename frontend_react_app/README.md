@@ -1,82 +1,35 @@
-# Lightweight React Template for KAVIA
+# Construction Management Suite - React Frontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+Ocean Professional themed React app with modular routing and REST + Supabase scaffolding.
 
 ## Features
-
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Ocean Professional theme (blue primary, amber accents), modern minimal UI
+- Header + side menu layout, responsive grid/card system, modal component
+- Routes for modules: Projects, Financials, Estimates, Jobs, Proposals, Invoices, Receipts, Contracts, Marketing, Backlog, Reports
+- REST client using REACT_APP_API_BASE_URL
+- Supabase client scaffolding for authentication and data usage
 
 ## Getting Started
 
-In the project directory, you can run:
+1. Copy env example and set values:
+   cp .env.example .env
+   - REACT_APP_API_BASE_URL (e.g., http://localhost:8000)
+   - REACT_APP_SITE_URL (e.g., http://localhost:3000)
+   - REACT_APP_SUPABASE_URL, REACT_APP_SUPABASE_ANON_KEY (optional for auth now)
 
-### `npm start`
+2. Install and run:
+   npm install
+   npm start
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Folder Structure
+- src/lib/apiClient.js: REST client
+- src/lib/supabaseClient.js: Supabase client
+- src/components: Header, Sidebar, Modal, PageHeader, StatCard
+- src/layouts/MainLayout.jsx: App shell
+- src/pages: Dashboard and all module pages
 
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Style Guide
+Theme tokens and layout styles are in src/index.css. Use:
+- --primary: #2563EB
+- --secondary: #F59E0B
+- Rounded corners, subtle shadows, and gradients

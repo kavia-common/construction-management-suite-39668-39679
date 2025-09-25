@@ -1,49 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './index.css';
+import MainLayout from './layouts/MainLayout';
+import Dashboard from './pages/Dashboard';
+import Projects from './pages/Projects';
+import Financials from './pages/Financials';
+import Estimates from './pages/Estimates';
+import Jobs from './pages/Jobs';
+import Proposals from './pages/Proposals';
+import Invoices from './pages/Invoices';
+import Receipts from './pages/Receipts';
+import Contracts from './pages/Contracts';
+import Marketing from './pages/Marketing';
+import Backlog from './pages/Backlog';
+import Reports from './pages/Reports';
 
 // PUBLIC_INTERFACE
-function App() {
-  const [theme, setTheme] = useState('light');
-
-  // Effect to apply theme to document element
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-
+export default function App() {
+  /** Root application with routing and main layout */
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/financials" element={<Financials />} />
+          <Route path="/estimates" element={<Estimates />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/proposals" element={<Proposals />} />
+          <Route path="/invoices" element={<Invoices />} />
+          <Route path="/receipts" element={<Receipts />} />
+          <Route path="/contracts" element={<Contracts />} />
+          <Route path="/marketing" element={<Marketing />} />
+          <Route path="/backlog" element={<Backlog />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </MainLayout>
+    </BrowserRouter>
   );
 }
-
-export default App;
