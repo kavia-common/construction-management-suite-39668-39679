@@ -14,6 +14,8 @@ import Contracts from './pages/Contracts';
 import Marketing from './pages/Marketing';
 import Backlog from './pages/Backlog';
 import Reports from './pages/Reports';
+import AuthCallback from './pages/auth/Callback';
+import AuthError from './pages/auth/Error';
 
 // PUBLIC_INTERFACE
 export default function App() {
@@ -34,6 +36,8 @@ export default function App() {
           <Route path="/marketing" element={<Marketing />} />
           <Route path="/backlog" element={<Backlog />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
+          <Route path="/auth/error" element={<AuthError />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </MainLayout>

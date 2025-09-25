@@ -15,7 +15,8 @@ Ocean Professional themed React app with modular routing and REST + Supabase sca
    cp .env.example .env
    - REACT_APP_API_BASE_URL (e.g., http://localhost:8000)
    - REACT_APP_SITE_URL (e.g., http://localhost:3000)
-   - REACT_APP_SUPABASE_URL, REACT_APP_SUPABASE_ANON_KEY (optional for auth now)
+   - REACT_APP_SUPABASE_URL, REACT_APP_SUPABASE_ANON_KEY (required to enable Supabase auth)
+- REACT_APP_SITE_URL (used for auth redirects; default to window.origin if not set)
 
 2. Install and run:
    npm install
